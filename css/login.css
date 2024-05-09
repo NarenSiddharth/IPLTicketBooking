@@ -1,0 +1,47 @@
+h1{
+    font-family: -apple-system,  
+                BlinkMacSystemFont, sans-serif; 
+    
+}
+
+#cric{
+    color: black;
+
+}
+
+input{
+    font-family: -apple-system,BlinkMacSystemFont, sans-serif;
+    margin: 5px;
+    
+
+}
+
+#book{
+    color: blue;
+}
+
+
+
+.login-box{
+    font-family: -apple-system,  
+                BlinkMacSystemFont, sans-serif;
+    margin-left: 25%;
+    width: 50%;
+    
+}
+
+.bar{
+    height: 38px;
+    background-color: #D9D9D9;
+}
+
+
+.flex-container {
+    display: flex;
+    margin-left: 50px;
+    /* Adjusts space between elements */
+
+
+    
+ /* Adjusts space between elements */
+  }
