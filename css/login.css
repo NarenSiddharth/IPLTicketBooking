@@ -23,16 +23,26 @@ input{
 
 
 .login-box{
+    margin-top:  5%;
     font-family: -apple-system,  
                 BlinkMacSystemFont, sans-serif;
+    text-align:center;                        
     margin-left: 25%;
     width: 50%;
     
 }
 
+.sub{
+    margin-top: 20px;
+}
+
 .bar{
     height: 38px;
     background-color: #D9D9D9;
+}
+
+.bar h1 {
+    margin-left: 50px; /* Moves the text 50 pixels from the left margin */
 }
 
 
@@ -45,3 +55,17 @@ input{
     
  /* Adjusts space between elements */
   }
+
+  .match1, .match2, .match3, .match4 {
+    /* Additional styles for individual matches */
+    margin-top:20px;
+    margin-left: 50px;
+    display: inline-block;
+    width: calc(33.33% - 10px); /* Calculate width to fit three matches in a row with some spacing */
+    margin-right: 10px; /* Add some space between matches */
+    border: 1px solid black; /* For visualization purposes */
+    padding: 10px; /* Add padding for better readability */
+}
+
+
+  
