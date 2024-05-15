@@ -46,14 +46,6 @@ input{
     
 }
 
-#back{
-    margin-left: 70%;
-}
-
-#back:hover {
-    text-decoration: underline;
-}
-
 
 .bar h1 {
     cursor: pointer;
@@ -88,3 +80,16 @@ input{
     margin-left: 145px;
 }
   
+#back1{
+    text-decoration: none;
+    color:black;
+    margin-left: 70%;
+}
+
+#back1:visited{
+    color: black;
+}
+
+#back1:hover {
+    text-decoration: underline;
+}
