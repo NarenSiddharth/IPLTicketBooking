@@ -5,19 +5,11 @@ const total = document.getElementById('total');
 
 
 
-populateUI();
-document.querySelector("#booktic").addEventListener("click", function() {  
-    alert("Book Ticket");
-});
+
 
 var k = 0;
 
-document.querySelector("#back").addEventListener("click", function() 
-{
 
-    alert("back");
-    
-});
 
 
 let ticketPrice = +localStorage.getItem('price');
