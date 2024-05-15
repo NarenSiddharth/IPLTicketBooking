@@ -1,4 +1,4 @@
-alert("hello");
+
 const stand = document.getElementById('stand1');
 const price = document.getElementById('price');
 
@@ -23,18 +23,12 @@ document.querySelectorAll("path").forEach(path=>{
 
 
 
+
 document.querySelector("#booktic").addEventListener("click", function() {  
     alert("Book Ticket");
 });
 
 var k = 0;
-
-document.querySelector("#back").addEventListener("click", function() 
-{
-
-    alert("back");
-    
-});
 
 
 
