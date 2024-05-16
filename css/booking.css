@@ -121,6 +121,12 @@ a{
   BlinkMacSystemFont, sans-serif; ;
     
 }
+#kk{
+  font-weight: 500;
+}
+a:hover{
+  text-decoration: underline;
+}
 
 .login-box{
     margin-top:  5%;
@@ -178,3 +184,11 @@ a{
   .svg{
     width: 100%;
   }
+
+#back:visited{
+    color: black;
+}
+
+#back:hover {
+    text-decoration: underline;
+}

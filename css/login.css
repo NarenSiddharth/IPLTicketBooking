@@ -50,7 +50,7 @@ input{
 .bar h1 {
     cursor: pointer;
     display: inline;
-    margin-left: 50px; /* Moves the text 50 pixels from the left margin */
+    margin-left: 75px; /* Moves the text 50 pixels from the left margin */
 }
 
 

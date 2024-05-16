@@ -10,6 +10,18 @@ const total = document.getElementById('total');
 var k = 0;
 
 
+document.querySelector("#bck").addEventListener("click", function() {
+    const stand1 = localStorage.getItem('stadium');
+
+    if(stand1 == "stand1"){
+      window.location.href = "stand1.html";
+    }
+    else if(stand1 == "stand"){
+      window.location.href = "stand.html";
+    }
+   
+});
+
 
 
 let ticketPrice = +localStorage.getItem('price');
@@ -18,7 +30,8 @@ function populateUI() {
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
     if (selectedSeats !== null && selectedSeats.length > 0) {
       seats.forEach((seat, index) => {
-        if (selectedSeats.indexOf(index) > -1) {
+        if (selectedSeats.indexOf(index) > -1) 
+        {
           seat.classList.add('selected');
         }
       });
