@@ -48,6 +48,8 @@ async function post(e){
 
     })
   })
+
+  window.location.href = "payment.html";
 }
 
 

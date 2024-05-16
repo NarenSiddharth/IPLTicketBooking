@@ -26,8 +26,8 @@ app.get('/', function(req,res){
 app.post('/rev', function(req,res){
     const {hometeam, awayteam, stadium, stand, price, seats} = req.body;
 
-    const id = 2;
-    const username = "royo";
+    const id = 4;
+    const username = "surya2";
     const match_id = 1;
     const seat = seats[0];
 
