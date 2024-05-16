@@ -1,0 +1,42 @@
+h1{
+    font-family: -apple-system,  
+                BlinkMacSystemFont, sans-serif; 
+    
+}
+
+#cric{
+    color: black;
+
+}
+
+#book{
+    color: blue;
+}
+
+.bar{
+    height: 38px;
+    background-color: #D9D9D9;    
+}
+
+
+.bar h1 {
+    cursor: pointer;
+    display: inline;
+    margin-left: 50px; /* Moves the text 50 pixels from the left margin */
+}
+
+.flex-container {
+    display: flex;
+    margin-left: 50px;
+    /* Adjusts space between elements */
+
+
+    
+ /* Adjusts space between elements */
+  }
+
+  #back1{
+    text-decoration: none;
+    color:black;
+    margin-left: 70%;
+}
