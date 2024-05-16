@@ -100,7 +100,27 @@ input{
     transform: scale(1);
   }
   
+a{
+  text-decoration: none;
+  color: black;
 
+}
+.cont {
+  background-color: #D9D9D9;
+  position: absolute;
+    left: 51%;
+    top: 85%;
+    transform: translateX(-51%);
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+
+
+
+  font-family: -apple-system,  
+  BlinkMacSystemFont, sans-serif; ;
+    
+}
 
 .login-box{
     margin-top:  5%;
@@ -109,6 +129,7 @@ input{
     text-align:center;                        
     margin-left: 25%;
     width: 50%;
+
     
 }
 
