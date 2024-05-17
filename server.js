@@ -71,6 +71,15 @@ app.post('/seats', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
+app.post('/reg',function(req,res){
+    const {username,phone,email,password} = req.body;
+    let sql="Insert into customer values (?,?,?,?)";
+    connection.query(sql, [username,phone,email,password], function(err, results){
+        if(err) throw err
+        res.send(results);
+    })
+})
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
     connection.connect(function(err) {
