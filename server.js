@@ -29,10 +29,24 @@ app.post('/rev', function(req, res) {
     const sql = "INSERT INTO reservation (user_name, match_id, stadium_name, stand, seat) VALUES ?";
     const values = seats.map(seat => [username, match_id, stadium, stand, seat]);
 
+    const sql2 = "UPDATE seats SET status = 'occupied' WHERE id = ?";
+    const values2 = seats.map(seat => [seat]); // Remove the array brackets
+
+    connection.query(sql2, [values2], function(err, results) {
+        if (err) throw err;
+        res.send(results);
+    });
+
+    
+
     connection.query(sql, [values], function(err, results) {
         if (err) throw err;
         res.send(results);
     });
+
+
+
+
 });
 
 // Get all seats
@@ -57,7 +71,7 @@ app.post('/seats', (req, res) => {
         return new Promise((resolve, reject) => {
             connection.query(
                 'UPDATE seats SET status = ? WHERE id = ?',
-                [status, index + 1],
+                ['occupied', index + 1],
                 (err, results) => {
                     if (err) return reject(err);
                     resolve(results);

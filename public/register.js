@@ -19,7 +19,7 @@ document.querySelector("button[type='submit']").addEventListener("click", functi
 
 });
 
-const regi= document.querySelector("#submit")
+const regi= document.querySelector("button[type='submit']")
 const baseUrl = 'http://localhost:8081/reg'
 
 async function post(e){

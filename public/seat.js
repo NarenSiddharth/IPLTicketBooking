@@ -6,8 +6,9 @@ const makeres = document.querySelector("#kk");
 
 populateUI();
 
-let ticketPrice = +localStorage.getItem('price');
+let ticketPrice = +localStorage.getItem('price') || 100; // Default price if not set
 
+// Populate UI with seats data from backend
 function populateUI() {
     fetch('http://localhost:8081/seats')
         .then(response => response.json())
@@ -22,6 +23,7 @@ function populateUI() {
         });
 }
 
+// Update selected count and total
 function updateSelectedCount() {
     const selectedSeats = document.querySelectorAll('.row .seat.selected');
     const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
@@ -29,26 +31,55 @@ function updateSelectedCount() {
     const selectedSeatsCount = selectedSeats.length;
     count.innerText = selectedSeatsCount;
     total.innerText = selectedSeatsCount * ticketPrice;
-    localStorage.setItem('total price', selectedSeatsCount * ticketPrice);
+    localStorage.setItem('totalPrice', selectedSeatsCount * ticketPrice);
 }
 
-container.addEventListener('click', (e) => {
+// Function to update seat status on the backend
+async function updateSeatStatus(seatIndex, status) {
+    try {
+        const response = await fetch('http://localhost:8081/seats', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                seatIndex: seatIndex,
+                status: status
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to update seat status');
+        }
+    } catch (error) {
+        console.error('Error updating seat status:', error);
+    }
+}
+
+// Seat click event
+container.addEventListener('click', async (e) => {
     if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
+        const seatIndex = Array.from(seats).indexOf(e.target);
         e.target.classList.toggle('selected');
+
+        // Update seat status on the backend
+        await updateSeatStatus(seatIndex, e.target.classList.contains('selected') ? 'selected' : 'available');
+
+        // Update selected count and total
         updateSelectedCount();
     }
 });
 
-makeres.addEventListener("click", post);
-
+// Post reservation data to backend
 async function post(e) {
     e.preventDefault();
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
-    if (selectedSeats == null) {
+    if (!selectedSeats || selectedSeats.length === 0) {
         alert("Please select seats");
         return;
     }
-    const res = await fetch('http://localhost:8081/rev', {
+
+    const response = await fetch('http://localhost:8081/rev', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -61,7 +92,12 @@ async function post(e) {
             seats: selectedSeats
         })
     });
+
+    
     window.location.href = "payment.html";
+   
 }
+
+makeres.addEventListener("click", post);
 
 updateSelectedCount();
