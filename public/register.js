@@ -17,5 +17,30 @@ document.querySelector("button[type='submit']").addEventListener("click", functi
     localStorage.setItem('email', email);
     localStorage.setItem('password', password);
 
-    window.location.href = "login.html";
 });
+
+const regi= document.querySelector("#submit")
+const baseUrl = 'http://localhost:8081/reg'
+
+async function post(e){
+
+    e.preventDefault();
+    
+    const res = await fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      
+      body: JSON.stringify({
+        username: localStorage.getItem('name'),
+        phone: localStorage.getItem('phone'),
+        email: localStorage.getItem('email'),
+        password: localStorage.getItem('password')
+      })
+    })
+  
+    window.location.href = "index.html";
+  }
+  
+  regi.addEventListener("click", post)
