@@ -1,0 +1,57 @@
+h1{
+    font-family: -apple-system,  
+                BlinkMacSystemFont, sans-serif; 
+    
+}
+
+#cric{
+    color: black;
+
+}
+
+input{
+    font-family: -apple-system,BlinkMacSystemFont, sans-serif;
+    margin: 5px;
+    
+
+}
+
+#book{
+    color: blue;
+}
+
+.bar{
+    height: 38px;
+    background-color: #D9D9D9;    
+}
+
+
+.bar h1 {
+    cursor: pointer;
+    display: inline;
+    margin-left: 50px; /* Moves the text 50 pixels from the left margin */
+}
+
+
+.flex-container {
+    display: flex;
+    margin-left: 50px;
+    /* Adjusts space between elements */
+
+
+    
+ /* Adjusts space between elements */
+  }
+
+.boxes{
+    margin-left: 50px;
+}
+
+label, input {
+    display: inline-block;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+}
