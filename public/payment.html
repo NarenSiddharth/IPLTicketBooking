@@ -1,0 +1,331 @@
+<div class="div">
+    <div class="div-2">
+      <span
+        style="font-family: I-apple-system,  
+        BlinkMacSystemFont, sans-serif; "
+      >
+        Cric
+      </span>
+      <span
+        style="
+          font-family: -apple-system,  
+                BlinkMacSystemFont, sans-serif; ;
+          color: black;
+        "
+      >
+        Book
+      </span>
+    </div>
+    <div class="div-3">Payment
+        <button class="div-13" onclick="goToSeatPage()">Back</button>
+    </div>
+    <div class="div-4">
+      <div class="div-5">
+        Amount: Rs. 2500
+        <br />
+        <br />
+        Convinience Fee: Rs. 250
+        <br />
+        <br />
+        Additional Charges: Rs. 100
+        <br />
+        <br />
+        Total: Rs. 2850
+      </div>
+
+
+      <div class="div-6">
+        <div class="div-7">
+          <div class="div-8">Platform:</div>
+          <button class="platform-image1"><img src="netbanking.jpg" alt="Platform 1"></button>
+          <button class="platform-image2"><img src="upi.jpg" alt="Platform 2"></button>
+          <button class="platform-image3"><img src="applepay.jpg" alt="Platform 3"></button>
+        </div>
+      </div>
+    </div>
+    <button class="div-12" onclick="openPopup()">Proceed to Payment</button>
+    <div class="popup" id="popup">
+        <img src="404-tick.png">
+        <h2>Thank you!</h2>
+        <p>Payment Successful</p>
+        <button id="okButton" type="button">OK</button>
+    </div>
+
+
+
+
+
+</div>
+
+<script>
+    document.getElementById("okButton").addEventListener("click", function() {
+        window.location.href = "index.html";
+
+
+
+    });
+    function goToSeatPage() {
+        window.location.href = "seat.html";
+    }
+
+</script>
+
+<script>
+    let popup=document.getElementById("popup");
+
+    function openPopup()
+    {
+        popup.classList.add("open-popup");
+    }
+
+</script>
+  <style>
+    .div {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        font-weight: 600;
+        padding: 40px 0 80px;
+        position: relative; /* Add position relative to use absolute positioning for .div-13 */
+    }
+
+    .platform-image1{
+      width: 200px;
+      height: 200px;
+      margin: right 30px;
+      gap: 50px;
+      border: none; /* Remove default button border */
+      background: none; /* Remove default button background */
+      padding: 0;
+    }
+
+    .platform-image2{
+      width: 100px;
+      height: 100px;
+      margin: right 30px;
+      gap: 50px;
+      border: none; /* Remove default button border */
+      background: none; /* Remove default button background */
+      padding: 0;
+    }
+
+    .platform-image3{
+      width: 100px;
+      height: 100px;
+      row-gap: 100px;
+      margin-left: 30px;
+      border: none; /* Remove default button border */
+      background: none; /* Remove default button background */
+      padding: 0;
+    }
+    
+    .platform-image2 img,
+    .platform-image3 img
+    {
+        width: 100px; /* Set width to match original image width */
+        height: 100px; /* Set height to match original image height */
+    }   
+    
+    .platform-image1 img
+    {
+       width: 200px;
+       height: 200px;
+    }
+
+    .platform-image1:active,
+    .platform-image1:focus,
+    .platform-image2:active,
+    .platform-image2:focus,
+    .platform-image3:active,
+    .platform-image3:focus {
+       filter: brightness(80%);
+    }
+   
+
+    .div-2 {
+      color: #4349e1;
+      align-self: start;
+      margin-left: 158px;
+      font: 700 64px Instagram Sans, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-2 {
+        margin-left: 10px;
+        font-size: 40px;
+      }
+    }
+    .div-3 {
+        background-color: #d9d9d9;
+        margin-top: 14px;
+        padding: 12px 60px 4px 302px;
+        font: 58px Inter, sans-serif;
+        position: relative; /* Add position relative for proper positioning */
+    }
+
+    @media (max-width: 991px) {
+      .div-3 {
+        font-size: 40px;
+        max-width: 100%;
+        white-space: initial;
+        padding: 0 20px 0 30px;
+      }
+    }
+    .div-4 {
+      align-self: center;
+      display: flex;
+      margin-top: 117px;
+      width: 100%;
+      max-width: 1313px;
+      align-items: end;
+      gap: 20px;
+      font-size: 45px;
+      padding: 0 20px;
+    }
+    @media (max-width: 991px) {
+      .div-4 {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        font-size: 40px;
+      }
+    }
+    .div-5 {
+      font-family: Inter, sans-serif;
+      align-self: stretch;
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+    @media (max-width: 991px) {
+      .div-5 {
+        max-width: 100%;
+        font-size: 40px;
+      }
+    }
+    .div-6 {
+      display: flex;
+      margin-top: 20px;
+      gap: 20px;
+      align-items: center;
+      white-space: nowrap;
+    }
+    @media (max-width: 991px) {
+      .div-6 {
+        margin-top: 40px;
+        font-size: 40px;
+        white-space: initial;
+      }
+    }
+    .div-7 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px; 
+    }
+    @media (max-width: 991px) {
+      .div-7 {
+        font-size: 40px;
+        white-space: initial;
+      }
+    }
+    .div-8 {
+      font-family: Inter, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-8 {
+        font-size: 40px;
+      }
+    }
+
+    .div-12 {
+      border-radius: 33.75px;
+      display: inline-block;
+      background-color: #d9d9d9;
+      align-self: center;
+      margin-top: 164px;
+      justify-content: center;
+      padding: 58px 51px;
+      cursor: pointer;
+      font: 34px Inter, sans-serif;
+    }
+    .div-12:hover
+    {
+      background-color: #4349e1; 
+    }
+    @media (max-width: 991px) {
+      .div-12 {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+
+    .div-13 {
+        text-decoration: none;
+        color: black;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        font-family: Inter, sans-serif; /* Add font-family */
+        font-size: 58px; 
+    }
+
+    .popup
+    {
+        width: 500px; /* Increased width */
+        background: #fff;
+        border-radius: 10px; /* Increased border-radius */
+        position: fixed; /* Changed position to fixed */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.1); /* Center horizontally and vertically */
+        text-align: center;
+        padding: 30px;
+        color: #333;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Added box-shadow */
+        visibility: hidden;
+        transition: transform 0.4s, top 0.4s;
+    }
+
+    .open-popup{
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+    .popup img{
+        width: 150px; /* Increased width */
+        margin-top: -75px; /* Adjusted margin-top */
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    }
+
+    .popup h2{
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0 10px;
+    }
+
+    .popup button{
+        width: 200px;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: #6fd649;
+        color: #fff;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2) ;
+
+    }
+
+
+  </style>
