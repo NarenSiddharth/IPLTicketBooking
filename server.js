@@ -39,6 +39,15 @@ app.post('/rev', function(req,res){
     })
 })
 
+app.post('/reg',function(req,res){
+    const {username,phone,email,password} = req.body;
+    let sql="Insert into customer values (?,?,?,?)";
+    connection.query(sql, [username,phone,email,password], function(err, results){
+        if(err) throw err
+        res.send(results);
+    })
+})
+
 app.listen(port, () => {
     console.log("listening");
     connection.connect(function(err){
