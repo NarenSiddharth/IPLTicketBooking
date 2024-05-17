@@ -32,12 +32,31 @@ app.post('/rev', function(req,res){
     const seat = seats[0];
 
 
-    let sql = "Insert into reservation (reservation_id,user_name,match_id,stadium_name, stand,seat) values (?,?,?,?,?,?)";
-    connection.query(sql, [id,username,match_id,stadium, stand,seat], function(err, results){
+    let sql = "Insert into reservation (user_name,match_id,stadium_name, stand,seat) values (?,?,?,?,?)";
+    connection.query(sql, [username,match_id,stadium, stand,seat], function(err, results){
         if(err) throw err
         res.send(results);
     })
 })
+
+app.post('/trans', function(req,res){
+    const {hometeam, awayteam, stadium, stand, price, seats} = req.body;
+
+    
+    const username = "surya2";
+    const match_id = 1;
+    const seat = seats[0];
+
+
+    let sql = "Insert into reservation (user_name,match_id,stadium_name, stand,seat) values (?,?,?,?,?,?)";
+    connection.query(sql, [username,match_id,stadium, stand,seat], function(err, results){
+        if(err) throw err
+        res.send(results);
+    })
+})
+
+
+
 
 app.listen(port, () => {
     console.log("listening");

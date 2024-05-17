@@ -6,6 +6,8 @@ const total = document.getElementById('total');
 
 const makeres = document.querySelector("#kk");
 
+populateUI();
+
 var k = 0;
 
 
@@ -92,6 +94,7 @@ function updateSelectedCount() {
   
     count.innerText = selectedSeatsCount;
     total.innerText = selectedSeatsCount * ticketPrice;
+    localStorage.setItem('total price', selectedSeatsCount * ticketPrice);
   }
 
 container.addEventListener('click', (e) => {

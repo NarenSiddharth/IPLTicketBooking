@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-    <button class="div-12" onclick="openPopup()">Proceed to Payment</button>
+    <button class="div-12" id = 'trans' onclick="openPopup()">Proceed to Payment</button>
     <div class="popup" id="popup">
         <img src="404-tick.png">
         <h2>Thank you!</h2>
@@ -64,6 +64,43 @@
 
 
     });
+
+    const maketrans = document.querySelector('#trans');
+
+    const baseUrl = 'http://localhost:8081/trans'
+
+    async function post(e){
+
+    e.preventDefault();
+  
+    const res = await fetch(baseUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+
+      
+      totalcost : localStorage.getItem('totalcost'),
+
+
+
+
+
+
+
+
+
+    })
+  })
+
+  window.location.href = "payment.html";
+}
+
+
+maketrans.addEventListener("click", post)
+
+
     function goToSeatPage() {
         window.location.href = "seat.html";
     }
