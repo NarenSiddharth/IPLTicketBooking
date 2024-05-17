@@ -40,10 +40,7 @@ async function post(e){
             alert("User does not exist");
         } else if (response.status === 401) {
             alert("Wrong username or password");
-        } else {
-            return response.text().then(text => { throw new Error(text); });
         }
-
     })
 
     
