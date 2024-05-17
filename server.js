@@ -24,29 +24,28 @@ app.get('/', function(req, res) {
 
 // Insert reservation
 app.post('/rev', function(req, res) {
-    const { username,match_id, stadium, stand, seats } = req.body;
+    const { username, match_id, stadium, stand, seats } = req.body;
 
     const sql = "INSERT INTO reservation (user_name, match_id, stadium_name, stand, seat) VALUES ?";
     const values = seats.map(seat => [username, match_id, stadium, stand, seat]);
 
     const sql2 = "UPDATE seats SET status = 'occupied' WHERE id = ?";
-    const values2 = seats.map(seat => [seat]); // Remove the array brackets
-
-    connection.query(sql2, [values2], function(err, results) {
-        if (err) throw err;
-        res.send(results);
+    seats.forEach(seat => {
+        connection.query(sql2, [seat], function(err, results) {
+            if (err) {
+                console.error(`Error updating seat ${seat}: `, err);
+                // Optionally, you can add error handling here
+            } else {
+                console.log(`Seat ${seat} updated to occupied`);
+            }
+        });
     });
-
-    
 
     connection.query(sql, [values], function(err, results) {
         if (err) throw err;
+        console.log("Reservation inserted");
         res.send(results);
     });
-
-
-
-
 });
 
 // Get all seats
@@ -89,15 +88,12 @@ app.post('/reg',function(req,res){
     const {username,phone,email,password} = req.body;
     let sql="Insert into customer values (?,?,?,?)";
     connection.query(sql, [username,phone,email,password], function(err, results){
-        if(err) throw err
+        if(err) throw err;
+        console.log("Customer registered");
         res.send(results);
-    })
-})
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
-    connection.connect(function(err) {
-        if (err) throw err;
-        console.log("Database connected");
-    });
 });
