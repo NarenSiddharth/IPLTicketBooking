@@ -100,18 +100,16 @@ app.post('/log', function(req, res) {
     
     connection.query(sql, [lusername], function(err, results) {
         if (err) {
-            return res.status(500).send("Internal Server Error");
+            return res.send("Internal Server Error");
         }
         
         if (results.length === 0) {
-            return res.status(404).send("User does not exist");
+            return res.send("User does not exist");
         }
         
         const storedpass = results[0].password;
-        if (storedpass === lpassword) {
-            return res.status(200).send("Login successful");
-        } else {
-            return res.status(401).send("Wrong username or password");
+        if (storedpass !== lpassword) {
+            return res.send("Wrong username or password");
         }
     });
 });
